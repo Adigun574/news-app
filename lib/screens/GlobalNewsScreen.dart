@@ -9,9 +9,10 @@ class GlobalNewsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("News")),
       drawer: NavigationDrawer(),
-      body: Center(
-        child: Text("Global News"),
-      ),
+      // body: Center(
+      //   child: Text("Global News"),
+      // ),
+      body: Image.network('https://picsum.photos/250?image=9'),
     );
   }
 }

@@ -13,15 +13,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // title: 'Flutter Demo',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.blue,
-      //   visualDensity: VisualDensity.adaptivePlatformDensity,
-      // ),
+      theme: ThemeData(
+        //   primarySwatch: Colors.blue,
+        //   visualDensity: VisualDensity.adaptivePlatformDensity,
+        // brightness: Brightness.dark,
+        primaryColor: Colors.redAccent[700],
+        accentColor: Colors.cyan[600],
+        textTheme: TextTheme(
+          bodyText2: TextStyle(
+            // color: Colors.white,
+          ),
+        ),
+      ),
       home: HomeScreen(),
       routes: {
         // '/':(ctx)=>HomeScreen(),
-        LocalNewsScreen.routeName:(ctx)=>LocalNewsScreen(),
-        GlobalNewsScreen.routeName:(ctx)=>GlobalNewsScreen()
+        LocalNewsScreen.routeName: (ctx) => LocalNewsScreen(),
+        GlobalNewsScreen.routeName: (ctx) => GlobalNewsScreen()
       },
     );
   }
