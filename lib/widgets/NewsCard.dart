@@ -10,8 +10,20 @@ class NewsCard extends StatelessWidget {
             child: Image.network('https://picsum.photos/250?image=9'),
             flex: 1,
           ),
+          SizedBox(width: 10),
           Expanded(
-            child: Text("Lorem ipsum dolor sit amei lorem ipsum dolor"),
+            child: (Column(
+              children: <Widget>[
+                Text("Lorem ipsum dolor sit amei lorem ipsum dolor"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text("02/02/20"),
+                    Icon(Icons.share),
+                  ],
+                )
+              ],
+            )),
             flex: 3,
           )
         ],
