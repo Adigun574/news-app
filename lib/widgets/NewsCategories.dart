@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NewsCategory extends StatelessWidget {
   @override
@@ -6,33 +7,41 @@ class NewsCategory extends StatelessWidget {
     return Row(
       children: <Widget>[
         Expanded(
-                  child: Column(
+          child: Column(
             children: <Widget>[
-              Icon(Icons.flag),
+              FaIcon(
+                FontAwesomeIcons.mapMarkerAlt,
+              ),
               Text("Local News"),
             ],
           ),
         ),
         Expanded(
-                  child: Column(
+          child: Column(
             children: <Widget>[
-              Icon(Icons.gps_not_fixed),
+              FaIcon(
+                FontAwesomeIcons.globeAmericas,
+              ),
               Text("Global News"),
             ],
           ),
         ),
         Expanded(
-                  child: Column(
+          child: Column(
             children: <Widget>[
-              Icon(Icons.gamepad),
+              FaIcon(
+                FontAwesomeIcons.footballBall,
+              ),
               Text("Sports News"),
             ],
           ),
         ),
         Expanded(
-                  child: Column(
+          child: Column(
             children: <Widget>[
-              Icon(Icons.party_mode),
+              FaIcon(
+                FontAwesomeIcons.film,
+              ),
               Text("Entertainment News"),
             ],
           ),
