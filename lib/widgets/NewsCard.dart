@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/screens/NewsDetailScreen.dart';
+import 'package:news/widgets/pictureModal.dart';
 import 'package:news/widgets/shareModal.dart';
 
 class NewsCard extends StatelessWidget {
@@ -17,8 +18,17 @@ class NewsCard extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: GestureDetector(
-                  child: Image.network('https://picsum.photos/250?image=9'),
-                  onTap: () => print("image clicked")),
+                  // child: Image.network('https://picsum.photos/250?image=9'),
+                  child: Image.asset(
+                    'assets/images/test_beer.PNG',
+                  ),
+                  onTap: () => {
+                        // print("image clicked"),
+                        showBottomSheet(
+                          context: context,
+                          builder: (context) => PictureModal(),
+                        )
+                      }),
               flex: 1,
             ),
             SizedBox(width: 10),

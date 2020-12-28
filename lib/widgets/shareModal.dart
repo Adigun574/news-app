@@ -27,23 +27,24 @@ class ShareModal extends StatelessWidget {
             ),
             SizedBox(height: 15),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Expanded(
-                    child: FaIcon(
-                      FontAwesomeIcons.twitter,
-                    ),
-                    flex: 1),
-                Expanded(
-                    child: FaIcon(
-                      FontAwesomeIcons.facebook,
-                    ),
-                    flex: 1),
-                Expanded(
-                    child: FaIcon(
-                      FontAwesomeIcons.instagram,
-                    ),
-                    flex: 1),
+                FaIcon(
+                  FontAwesomeIcons.twitter,
+                  size: 40,
+                  color: new Color.fromRGBO(29, 161, 242, 1),
+                ),
+                FaIcon(
+                  FontAwesomeIcons.facebook,
+                  size: 40,
+                  color: new Color.fromRGBO(46, 137, 255, 1),
+                ),
+                FaIcon(
+                  FontAwesomeIcons.instagram,
+                  size: 40,
+                  color: new Color.fromRGBO(175, 48, 187, 1),
+                ),
               ],
             )
           ]),

@@ -17,7 +17,9 @@ class LocalNewsScreen extends StatelessWidget {
             Card(
               child: TopNewsCard(),
             ),
+            Divider(),
             NewsCategory(),
+            Divider(),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.all(8),

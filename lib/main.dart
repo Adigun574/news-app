@@ -17,12 +17,13 @@ class MyApp extends StatelessWidget {
         //   primarySwatch: Colors.blue,
         //   visualDensity: VisualDensity.adaptivePlatformDensity,
         // brightness: Brightness.dark,
-        primaryColor: Colors.redAccent[700],
+        // primaryColor: Colors.redAccent[700],
+        primaryColor: Colors.blue[400],
         accentColor: Colors.cyan[600],
         textTheme: TextTheme(
           bodyText2: TextStyle(
-            // color: Colors.white,
-          ),
+              // color: Colors.white,
+              ),
         ),
       ),
       home: HomeScreen(),
