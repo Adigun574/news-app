@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news/screens/EntertainmentNewsScreen.dart';
 import 'package:news/screens/GlobalNewsScreen.dart';
 import 'package:news/screens/LocalNewsScreen.dart';
+import 'package:news/screens/SportNewsScreen.dart';
 
 class NewsCategory extends StatelessWidget {
   @override
@@ -53,25 +55,30 @@ class NewsCategory extends StatelessWidget {
             flex: 1,
           ),
           Expanded(
-            child: Column(
-              children: <Widget>[
-                FaIcon(
-                  FontAwesomeIcons.footballBall,
-                  color: Colors.blue,
-                ),
-                Text(
-                  "Sports",
-                  style: TextStyle(
+            child: GestureDetector(
+              onTap: () => Navigator.pushReplacementNamed(
+                  context, SportNewsScreen.routeName),
+              child: Column(
+                children: <Widget>[
+                  FaIcon(
+                    FontAwesomeIcons.footballBall,
                     color: Colors.blue,
                   ),
-                ),
-              ],
+                  Text(
+                    "Sports",
+                    style: TextStyle(
+                      color: Colors.blue,
+                    ),
+                  ),
+                ],
+              ),
             ),
             flex: 1,
           ),
           Expanded(
             child: GestureDetector(
-              onTap: () => {print("yes")},
+              onTap: () => Navigator.pushReplacementNamed(
+                  context, EntertainmentNewsScreen.routeName),
               child: Column(
                 children: <Widget>[
                   FaIcon(

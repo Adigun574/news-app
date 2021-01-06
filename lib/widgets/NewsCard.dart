@@ -2,8 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:news/screens/NewsDetailScreen.dart';
 import 'package:news/widgets/pictureModal.dart';
 import 'package:news/widgets/shareModal.dart';
+import 'package:intl/intl.dart';
+
+class News {
+  final dynamic news;
+
+  News(this.news);
+}
 
 class NewsCard extends StatelessWidget {
+  final dynamic newsObj;
+
+  NewsCard(this.newsObj);
+
+  handleFormatDate(date) {
+    return date;
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,6 +34,7 @@ class NewsCard extends StatelessWidget {
             Expanded(
               child: GestureDetector(
                   // child: Image.network('https://picsum.photos/250?image=9'),
+                  // child: Image.network(newsObj['urlToImage']),
                   child: Image.asset(
                     'assets/images/test_beer.PNG',
                   ),
@@ -35,14 +51,16 @@ class NewsCard extends StatelessWidget {
             Expanded(
               child: (Column(
                 children: <Widget>[
-                  Text("Lorem ipsum dolor sit amei lorem ipsum dolor"),
+                  // Text("Lorem ipsum dolor sit amei lorem ipsum dolor"),
+                  Text(newsObj['title']),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text("02/02/20"),
+                      // Text("02/02/20"),
+                      Text(newsObj['publishedAt']),
+                      // Text(DateFormat().format(newsObj['publishedAt'])),
                       GestureDetector(
                         child: Icon(Icons.share),
-                        // onTap: () => print("share clicked"),
                         onTap: () {
                           showBottomSheet(
                               context: context,

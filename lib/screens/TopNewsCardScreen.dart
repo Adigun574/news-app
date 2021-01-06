@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TopNewsCard extends StatelessWidget {
+  final dynamic newsObj;
+
+  TopNewsCard(this.newsObj);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,7 +15,8 @@ class TopNewsCard extends StatelessWidget {
             children: <Widget>[
               Expanded(
                   child: Text(
-                    "PDP senatorial candidate, Gbadamosi wins polling unit The Peoples Democratic Party (PDP) ...",
+                    // "PDP senatorial candidate, Gbadamosi wins polling unit The Peoples Democratic Party (PDP) ...",
+                    newsObj['title'],
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -19,6 +24,7 @@ class TopNewsCard extends StatelessWidget {
                   ),
                   flex: 2),
               Expanded(
+                // child: Image.network('https://picsum.photos/250?image=9',
                 // child: Image.network('https://picsum.photos/250?image=9',
                 child: Image.asset(
                   'assets/images/test_beer.PNG',

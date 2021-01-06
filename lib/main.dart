@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:news/screens/EntertainmentNewsScreen.dart';
 import 'package:news/screens/GlobalNewsScreen.dart';
 import 'package:news/screens/Home_screen.dart';
 import 'package:news/screens/LocalNewsScreen.dart';
+import 'package:news/screens/SportNewsScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,11 +28,14 @@ class MyApp extends StatelessWidget {
               ),
         ),
       ),
-      home: HomeScreen(),
+      // home: HomeScreen(),
+      home: LocalNewsScreen(),
       routes: {
         // '/':(ctx)=>HomeScreen(),
         LocalNewsScreen.routeName: (ctx) => LocalNewsScreen(),
-        GlobalNewsScreen.routeName: (ctx) => GlobalNewsScreen()
+        GlobalNewsScreen.routeName: (ctx) => GlobalNewsScreen(),
+        SportNewsScreen.routeName: (ctx) => SportNewsScreen(),
+        EntertainmentNewsScreen.routeName: (ctx) => EntertainmentNewsScreen()
       },
     );
   }

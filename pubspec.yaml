@@ -26,6 +26,9 @@ dependencies:
     # assets:
     #   - assets/test_beer.PNG
   font_awesome_flutter: "8.10.1"
+  http: ^0.12.2
+  intl: ^0.16.1
+  # http: any
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
