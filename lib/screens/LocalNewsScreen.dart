@@ -46,7 +46,7 @@ class _LocalNewsScreenState extends State<LocalNewsScreen> {
       final news = responseBody['articles'];
       final List<dynamic> newsStuff = List<dynamic>.from(news as Iterable);
       setState(() => this._newsStuff = newsStuff);
-      // print(newsStuff);
+      print(newsStuff);
       return newsStuff;
     } catch (err) {
       // print('error occured during http request');
@@ -68,27 +68,29 @@ class _LocalNewsScreenState extends State<LocalNewsScreen> {
     return Scaffold(
       appBar: AppBar(
           title: Text(
-        "Local Newss",
+        "Local News",
         style: TextStyle(color: Colors.white),
       )),
       drawer: NavigationDrawer(),
       // body: NewsPageScreen(),
-      body: Column(
-        children: <Widget>[
-          Card(
-            child: TopNewsCard(_newsStuff[0]),
-          ),
-          Divider(),
-          NewsCategory(),
-          Divider(),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _newsStuff.length,
-              itemBuilder: (ctx, i) => NewsCard(_newsStuff[i]),
-            ),
-          ),
-        ],
-      ),
+      body: _newsStuff.length > 0
+          ? Column(
+              children: <Widget>[
+                Card(
+                  child: TopNewsCard(_newsStuff[0]),
+                ),
+                Divider(),
+                NewsCategory(),
+                Divider(),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: _newsStuff.length,
+                    itemBuilder: (ctx, i) => NewsCard(_newsStuff[i]),
+                  ),
+                ),
+              ],
+            )
+          : Text('loading'),
     );
   }
 }

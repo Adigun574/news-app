@@ -25,7 +25,7 @@ class NewsCard extends StatelessWidget {
       // onTap: () => print("card clicked"),
       onTap: () => {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return NewsDetail();
+          return NewsDetail(newsObj);
         }))
       },
       child: Card(
@@ -34,15 +34,27 @@ class NewsCard extends StatelessWidget {
             Expanded(
               child: GestureDetector(
                   // child: Image.network('https://picsum.photos/250?image=9'),
-                  // child: Image.network(newsObj['urlToImage']),
-                  child: Image.asset(
-                    'assets/images/test_beer.PNG',
+                  child: Image.network(
+                    newsObj['urlToImage'] is String
+                        ? newsObj['urlToImage']
+                        : 'https://images.pexels.com/photos/3944454/pexels-photo-3944454.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                    height: 80,
+                    fit: BoxFit.cover,
                   ),
+                  // child: Image.asset(
+                  //   'assets/images/test_beer.PNG',
+                  //   height: 80,
+                  //   fit: BoxFit.cover,
+                  // ),
                   onTap: () => {
                         // print("image clicked"),
                         showBottomSheet(
                           context: context,
-                          builder: (context) => PictureModal(),
+                          builder: (context) => PictureModal(
+                            newsObj['urlToImage'] is String
+                                ? newsObj['urlToImage']
+                                : 'https://images.pexels.com/photos/3944454/pexels-photo-3944454.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                          ),
                         )
                       }),
               flex: 1,

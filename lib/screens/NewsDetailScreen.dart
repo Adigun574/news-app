@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:news/screens/NavigationDrawer.dart';
 
 class NewsDetail extends StatelessWidget {
+  final dynamic newsObj;
+  NewsDetail(this.newsObj);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Vanguard"),
+        title: Text(newsObj['source']['name']),
       ),
       drawer: NavigationDrawer(),
       body: ListView(
@@ -15,9 +17,10 @@ class NewsDetail extends StatelessWidget {
           Column(
             children: <Widget>[
               Text(
-                "North is ready for Restructuring – Ango Abdullahi",
+                // "North is ready for Restructuring – Ango Abdullahi",
+                newsObj['title'],
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -27,8 +30,15 @@ class NewsDetail extends StatelessWidget {
               ),
               Container(
                 child: Card(
-                  child: Image.asset(
-                    'assets/images/test_beer.PNG',
+                  child:
+                      // Image.asset(
+                      //   'assets/images/test_beer.PNG',
+                      //   height: double.infinity,
+                      //   width: double.infinity,
+                      //   fit: BoxFit.cover,
+                      // ),
+                      Image.network(
+                    newsObj['urlToImage'],
                     height: double.infinity,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -45,7 +55,7 @@ class NewsDetail extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Professor Ango Abdullahi, former vice-chancellor of the Ahmadu Bello University, ABU, Zaria, and currently the convener, Northern Elders Forum NEF has been very vociferous in his calls for a change of tactics in respect of administering the country.",
+                newsObj['description'],
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -57,7 +67,7 @@ class NewsDetail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Text(
-                    "Author: Nwafor",
+                    'Author: ${newsObj['author']}',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
