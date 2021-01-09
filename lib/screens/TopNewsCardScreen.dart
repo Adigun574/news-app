@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/widgets/pictureModal.dart';
 
 import 'NewsDetailScreen.dart';
 
@@ -23,7 +24,6 @@ class TopNewsCard extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                     child: Text(
-                      // "PDP senatorial candidate, Gbadamosi wins polling unit The Peoples Democratic Party (PDP) ...",
                       newsObj['title'],
                       style: TextStyle(
                         fontSize: 20,
@@ -33,21 +33,24 @@ class TopNewsCard extends StatelessWidget {
                     flex: 2),
                 Expanded(
                   // child: Image.network('https://picsum.photos/250?image=9',
-                  child: Image.network(
-                      newsObj['urlToImage'] is String
-                          ? newsObj['urlToImage']
-                          : '',
-                      // child: Image.asset(
-                      //   'assets/images/test_beer.PNG',
-                      // width: 200,
-                      // height: 400,
-                      // fit: BoxFit.contain,
-                      fit: BoxFit.cover,
-                      height: 100
-                      //   loadingBuilder: (context, child, progress) {
-                      // return progress == null ? child : LinearProgressIndicator();
-                      // }
-                      ),
+                  child: GestureDetector(
+                    onTap: () => {
+                      showBottomSheet(
+                        context: context,
+                        builder: (context) => PictureModal(
+                          newsObj['urlToImage'] is String
+                              ? newsObj['urlToImage']
+                              : 'https://images.pexels.com/photos/3944454/pexels-photo-3944454.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                        ),
+                      )
+                    },
+                    child: Image.network(
+                        newsObj['urlToImage'] is String
+                            ? newsObj['urlToImage']
+                            : '',
+                        fit: BoxFit.cover,
+                        height: 100),
+                  ),
                   flex: 1,
                 )
               ],

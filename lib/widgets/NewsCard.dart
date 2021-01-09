@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news/screens/NewsDetailScreen.dart';
 import 'package:news/widgets/pictureModal.dart';
 import 'package:news/widgets/shareModal.dart';
 import 'package:intl/intl.dart';
+import 'package:social_share/social_share.dart';
 
 class News {
   final dynamic news;
@@ -15,8 +17,12 @@ class NewsCard extends StatelessWidget {
 
   NewsCard(this.newsObj);
 
-  handleFormatDate(date) {
-    return date;
+  handleDate(date) {
+    return date.split('T')[0];
+  }
+
+  handleTime(date) {
+    return date.split('T')[1].split('Z')[0];
   }
 
   @override
@@ -68,15 +74,74 @@ class NewsCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      // Text("02/02/20"),
-                      Text(newsObj['publishedAt']),
-                      // Text(DateFormat().format(newsObj['publishedAt'])),
+                      // Text(newsObj['publishedAt']),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              FaIcon(
+                                FontAwesomeIcons.calendarDay,
+                                size: 12,
+                                color: new Color.fromRGBO(0, 0, 0, 0.4),
+                              ),
+                              SizedBox(width: 2),
+                              Text(
+                                handleDate(newsObj['publishedAt']),
+                                style: TextStyle(
+                                  color: new Color.fromRGBO(0, 0, 0, 0.4),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(width: 20),
+                          Row(
+                            children: <Widget>[
+                              FaIcon(
+                                FontAwesomeIcons.clock,
+                                size: 12,
+                                color: new Color.fromRGBO(0, 0, 0, 0.4),
+                              ),
+                              SizedBox(width: 2),
+                              Text(
+                                handleTime(newsObj['publishedAt']),
+                                style: TextStyle(
+                                  color: new Color.fromRGBO(0, 0, 0, 0.4),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      // Row(
+                      //   children: <Widget>[
+                      //     Expanded(
+                      //       child: Row(
+                      //         children: <Widget>[
+                      //           Text('aa'),
+                      //           Text('jdjjdjjd'),
+                      //         ],
+                      //       ),
+                      //       flex: 1,
+                      //     ),
+                      //     Expanded(
+                      //       child: Row(
+                      //         children: <Widget>[
+                      //           Text('aa'),
+                      //           Text('jdjjdjjd'),
+                      //         ],
+                      //       ),
+                      //       flex: 1,
+                      //     )
+                      //   ],
+                      // ),
                       GestureDetector(
                         child: Icon(Icons.share),
                         onTap: () {
-                          showBottomSheet(
-                              context: context,
-                              builder: (context) => ShareModal());
+                          SocialShare.shareOptions(newsObj['description']);
+                          // showBottomSheet(
+                          //     context: context,
+                          //     builder: (context) => ShareModal());
                         },
                       ),
                     ],

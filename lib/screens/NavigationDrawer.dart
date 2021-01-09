@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news/screens/EntertainmentNewsScreen.dart';
 import 'package:news/screens/GlobalNewsScreen.dart';
 import 'package:news/screens/LocalNewsScreen.dart';
@@ -62,7 +63,7 @@ class NavigationDrawer extends StatelessWidget {
           Card(
             child: ListTile(
               leading: FlutterLogo(),
-              title: Text('One-line with leading widget'),
+              title: Text('NEWS APP'),
             ),
           ),
           SizedBox(
@@ -71,7 +72,10 @@ class NavigationDrawer extends StatelessWidget {
           Card(
             child: ListTile(
               // leading: FlutterLogo(),
-              leading: Icon(Icons.flag),
+              leading: FaIcon(
+                FontAwesomeIcons.mapMarkerAlt,
+                color: Colors.blue,
+              ),
               title: Text('Local News'),
               onTap: () =>
                   // Navigator.of(context).pushNamed(LocalNewsScreen.routeName),
@@ -81,7 +85,10 @@ class NavigationDrawer extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              leading: Icon(Icons.gps_not_fixed),
+              leading: FaIcon(
+                FontAwesomeIcons.globeAmericas,
+                color: Colors.blue,
+              ),
               title: Text('Global News'),
               onTap: () => Navigator.pushReplacementNamed(
                   context, GlobalNewsScreen.routeName),
@@ -89,7 +96,10 @@ class NavigationDrawer extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              leading: Icon(Icons.gamepad),
+              leading: FaIcon(
+                FontAwesomeIcons.footballBall,
+                color: Colors.blue,
+              ),
               title: Text('Sport News'),
               onTap: () => Navigator.pushReplacementNamed(
                   context, SportNewsScreen.routeName),
@@ -97,7 +107,10 @@ class NavigationDrawer extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              leading: Icon(Icons.party_mode),
+              leading: FaIcon(
+                FontAwesomeIcons.film,
+                color: Colors.blue,
+              ),
               title: Text('Entertainment News'),
               onTap: () => Navigator.pushReplacementNamed(
                   context, EntertainmentNewsScreen.routeName),

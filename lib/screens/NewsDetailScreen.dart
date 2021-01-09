@@ -17,7 +17,6 @@ class NewsDetail extends StatelessWidget {
           Column(
             children: <Widget>[
               Text(
-                // "North is ready for Restructuring – Ango Abdullahi",
                 newsObj['title'],
                 style: TextStyle(
                   fontSize: 22,
@@ -29,21 +28,19 @@ class NewsDetail extends StatelessWidget {
                 thickness: 2,
               ),
               Container(
-                child: Card(
-                  child:
-                      // Image.asset(
-                      //   'assets/images/test_beer.PNG',
-                      //   height: double.infinity,
-                      //   width: double.infinity,
-                      //   fit: BoxFit.cover,
-                      // ),
-                      Image.network(
-                    newsObj['urlToImage'],
-                    height: double.infinity,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
+                child: GestureDetector(
+                  child: Card(
+                    child:
+                        // Image.asset(
+                        //   'assets/images/test_beer.PNG',
+                        Image.network(
+                      newsObj['urlToImage'],
+                      height: double.infinity,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                    elevation: 10,
                   ),
-                  elevation: 10,
                 ),
                 height: 150,
                 alignment: Alignment.center,
@@ -82,18 +79,3 @@ class NewsDetail extends StatelessWidget {
     );
   }
 }
-
-// {"status":"ok","totalResults":38,"articles":[{"source":{"id":null,"name":"Vanguard"},
-// "author":"Nwafor","title":"North is ready for Restructuring – Ango Abdullahi - Vanguard",
-// "description":"Professor Ango Abdullahi, former vice-chancellor of the Ahmadu Bello University, ABU, Zaria, and currently the convener,
-// Northern Elders Forum NEF has been very vociferous in his calls for a change of tactics in respect
-//  of administering the country.","url":"https://www.vanguardngr.com/2020/12/north-is-ready-for-restructuring-ango-abdullahi/","urlToImage":
-//  "https://i0.wp.com/www.vanguardngr.com/wp-content/uploads/2013/05/Ango-Abdullahi.jpg?fit=412%2C265&ssl=1",
-//  "publishedAt":"2020-12-28T06:16:00Z","content":"*Prof Ango Abdullahi\r\nWe must dismantle this Presidential system\r\nParliamentary system,
-//  the solution to our unworkable federal structure\r\nWhere Nigeria went wrong\r\nProfessor Ango Abdullahi, former vi… [+19563 chars]"},
-//  {"source":{"id":null,"name":"GSMArena.com"},"author":"Yordan","title":"My Top 5 phones of 2020: Yordan - GSMArena.com news - GSMArena.com",
-//  "description":"The past 12 months brought some rather impressive smartphones.",
-//  "url":"https://www.gsmarena.com/my_top_5_phones_of_2020__yordan-news-46877.php",
-//  "urlToImage":"https://fdn.gsmarena.com/imgroot/news/20/12/top-phones-2020-yordan/-476x249w4/gsmarena_001.jpg","publishedAt":"2020-12-28T06:06:02Z",
-//  "content":"The past year has been unusual for everyone, but at least the smartphone world kept going. We saw devices get released left and right,
-//  the market battle remained as fierce as ever, and it became hard… [+4436 chars]"},

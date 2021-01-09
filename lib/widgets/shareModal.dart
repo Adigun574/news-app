@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:social_share/social_share.dart';
 
 class ShareModal extends StatelessWidget {
   @override
@@ -30,10 +31,20 @@ class ShareModal extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                FaIcon(
-                  FontAwesomeIcons.twitter,
-                  size: 40,
-                  color: new Color.fromRGBO(29, 161, 242, 1),
+                GestureDetector(
+                  onTap: () => {
+                    // SocialShare.shareTwitter("This is Social Share plugin")
+                    // SocialShare.shareOptions("Hello world")
+                    // SocialShare.shareTwitter(
+                    //     "This is Social Share twitter example",
+                    //     hashtags: ["hello", "world", "foo", "bar"])
+                    // SocialShare.shareWhatsapp("Hello World")
+                  },
+                  child: FaIcon(
+                    FontAwesomeIcons.twitter,
+                    size: 40,
+                    color: new Color.fromRGBO(29, 161, 242, 1),
+                  ),
                 ),
                 FaIcon(
                   FontAwesomeIcons.facebook,
